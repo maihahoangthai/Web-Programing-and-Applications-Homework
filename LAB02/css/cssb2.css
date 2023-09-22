@@ -1,0 +1,89 @@
+body{
+    background-color: rgb(255, 248, 223);
+    font-family: Arial;
+}
+
+.content{
+    border: 1px solid gray;
+    border-radius: 8px;
+    width: 400px;
+    margin: 20px auto;
+    padding: 16px;
+}
+
+@media all and (max-width: 600px){
+    .content{
+        width: 95%;
+    }
+}
+
+.form-group{
+    margin-bottom: 16px;
+}
+
+.form-group div label{
+    display: inline;
+}
+
+.form-control{
+    width: 100%;
+    height: 32px;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid gray;
+}
+
+.form-control:hover{
+    border: 2px solid rgb(147, 141, 127);
+    background-color: rgb(255, 244, 201);
+}
+
+.form-control:focus{
+    border: 2px solid rgb(205, 99, 4);
+    background-color: rgb(243, 217, 132);
+}
+
+label{
+    color: #565656;
+    font-size: 13px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.input-error{
+    font-size: 11px;
+    color: rgb(215, 115, 116);
+    margin-top: 4px;
+    margin-left: 4px;
+}
+
+
+input[type="range"]{
+    width: 100%;
+}
+
+button{
+    outline: none;
+    padding: 8px 12px;
+    border: none;
+    color: white;
+    border-radius: 8px;
+}
+
+button[type="submit"]{
+    background-color: rgb(197, 49, 49);
+}
+
+button[type="submit"]:hover{
+    background-color: rgb(186, 18, 18);
+}
+
+button[type="reset"]{
+    background-color: rgb(227, 167, 63);
+}
+
+button[type="reset"]:hover{
+    background-color: rgb(205, 135, 26);
+}

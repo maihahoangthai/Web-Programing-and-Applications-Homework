@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bài tập 3</title>
+</head>
+<body>
+	<form action ="http://web-tdtu.herokuapp.com/lab01/register.php" method="post">
+	<table>
+		<tr>
+			<td>
+				<label>Your Name</label>
+			</td>
+			<td>
+				<input type ="text" name = "name" required="" placeholder="Full Name" style="width: 100%;">
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<label>Email Address</label>
+			</td>
+			<td>
+				<input type ="email" name = "email" required="" placeholder="Email" style="width: 100%;">
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<label>Birthday</label>
+			</td>
+			<td>
+				<input type ="date" name = "birthday" required="" style="width: 100%;">
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<label>Birthtime</label>
+			</td>
+			<td>
+				<input type ="time" name = "birthtime" required="" style="width: 100%;">
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<label>Gender</label>
+			</td>
+			<td>
+				<input type="radio" name="gender" value="male">Male
+				<input type="radio" name="gender" value="female">Female
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<label>From</label>
+			</td>
+			<td>
+				<select required="" style="width: 100%;" name="country">
+					<option value="">Select a country</option>
+					<optgroup label="Asia">
+						<option value="Vietnam">Vietnam</option>
+						<option value="Laos">Laos</option>
+						<option value="Cambodia">Cambodia</option>
+						<option value="Singapore">Singapore</option>
+					</optgroup>
+					<optgroup label="Eruope">
+						<option value="France">France</option>
+						<option value="Belgium">Belgium</option>
+						<option value="Italy">Italy</option>
+						<option value="Finland">Finland</option>
+						<option value="Ireland">Ireland</option>
+					</optgroup>
+				</select>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<label>Favorite IDE</label>
+			</td>
+			<td>
+				<input type="checkbox" name="favorite_ide[]" value="Visual Studio Code">Visual Studio Code<br>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<input type="checkbox" name="favorite_ide[]" value="Sublime Text">Sublime Text<br>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<input type="checkbox" name="favorite_ide[]" value="Eclipse">Eclipse<br>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<input type="checkbox" name="favorite_ide[]" value="Atom">Atom<br>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<input type="checkbox" name="favorite_ide[]" value="Intelij Idea">Intelij Idea<br>
+			</td>
+		</tr>
+
+		<tr>
+        		<td>
+            			<label>TOEIC Score</label>
+            		</td>
+            		<td>
+            			<input type="range" id="toeic" name="toeic" min="5" max="990" value="450" step="5">
+            		</td>
+        	</tr>
+
+		<tr>
+			<td style="vertical-align: top;">
+				<label>Message</label>
+			</td>
+			<td>
+				<textarea rows="5" cols="10" name="message" style="width: 100%;"></textarea>
+			</td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td colspan="2">
+				<input type ="submit" value ="Register" style="margin-right: 0.25%;">
+				<input type="reset" value="Again">
+			</td>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>

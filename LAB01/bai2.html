@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 2</title>
+    <style>
+        p{
+            margin: 4px;
+        }
+    </style>
+</head>
+<body>
+    <form action="http://web-tdtu.herokuapp.com/lab01/login.php " method="POST">
+        <table>
+            <tr>
+                <td>
+                    <label for="fname">Email</label>
+                </td>
+                <td>
+                    <input type="email" name="email" id="email" placeholder="email@domain.com" required=""><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="lname">Password</label><br>
+                </td>
+                <td>
+                    <input type="password" name="password" id="password" required=""><br>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <label for="lname">Remember me:</label><br>
+                </td>
+                <td>
+                    <input type="checkbox" name="remeber" id="remember"><br>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Login"><br>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <p>Not Registered? <a href="https://www.w3schools.com/html/default.asp" target="_blank" style="text-decoration: none">Creat an account</a><p>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <p>For got your password? <a href="https://www.w3schools.com/css/default.asp" target="_blank" style="text-decoration: none">Click here to reset</a><p>
+                </td>
+            </tr>
+
+        </table>
+    </form>
+</body>
+</html>

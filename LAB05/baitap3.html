@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Bài tập 3</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<style>
+		.imgboxbottom,.imgboxbottom *{
+			box-sizing: border-box;
+			border: 1px solid black;
+		}
+		.imgboxbottom{
+			width: 327px;
+			margin: 20px auto;
+		}
+		.imgboxtop,.imgboxtop *{
+			box-sizing: border-box;
+			border: 1px solid black;
+		}
+		.imgboxtop{
+			width: 197px;
+			margin: 20px auto;
+		}
+		.imgbox > div{
+			width: 65px;
+			height: 65px;
+			float: left;
+		}
+		img{
+			width: 63px;
+			height: 63px;
+			transition: all 0.5s ease;
+		}
+	</style>
+	<script>
+		var cacgoc=[0, 90, 180, 270];
+		function rand(){
+			return Math.floor(Math.random() * cacgoc.length);
+		}
+		var gochinh=[rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()];
+		function rotateMe(img, degrees){
+			$(img).css({
+			  'transform': 'rotate(' + degrees + 'deg)',
+			  '-ms-transform': 'rotate(' + degrees + 'deg)',
+			  '-moz-transform': 'rotate(' + degrees + 'deg)',
+			  '-webkit-transform': 'rotate(' + degrees + 'deg)',
+			  '-o-transform': 'rotate(' + degrees + 'deg)'
+			});
+		} 
+		function allowDrop(ev) {
+			ev.preventDefault();
+		}
+
+		function drag(ev) {
+			ev.originalEvent.dataTransfer.setData("text", ev.target.id);
+		}
+
+		function drop(ev) {
+			if(ev.target.tagName.toUpperCase()!="DIV"){
+				return false;
+			}
+			ev.preventDefault();
+			var data = ev.originalEvent.dataTransfer.getData("text");
+			ev.target.appendChild(document.getElementById(data));
+			kiemtrathang();
+		}
+		function kiemtrathang(){
+			for(var i=0; i<gochinh.length-1;i++)
+				if(gochinh[i]!=0)
+					return false;
+			var thang=true;
+			$('.imgboxtop > div').each(function (){
+				var iid = $(this).attr('tag');
+				var img = $(this).find('img');
+				if(img.length==0 || img[0].id!=iid)
+					thang=false;
+			})
+			if(thang==true)
+				$("#alertdiv").show(500);
+			return thang;
+		}
+		$(function(){
+			for(var i=0; i<gochinh.length; i++){
+				rotateMe('#img'+(i+1),cacgoc[gochinh[i]]);
+			}
+			//ondrop="drop(event)" ondragover="allowDrop(event)"
+			$('.imgbox > div').on("dragover", function(event) {
+				event.preventDefault();
+			});
+			$('.imgbox > div').on("drop", function(event) {
+				drop(event);
+			});
+			$("img").on("dragstart", function(event){
+				drag(event);
+			});
+			$("img").click(function(event){
+				var idx = parseInt(this.id.substr(3))-1;
+				gochinh[idx]=(gochinh[idx]+1)%cacgoc.length;
+				rotateMe(this,cacgoc[gochinh[idx]]);
+				kiemtrathang();
+			});
+		});
+	</script>
+</head>
+<body>
+	<h2 style="text-align: center">Xếp hình</h2>
+	<div class="imgboxtop imgbox">
+		<!--3x3-->
+		<div tag="img1">
+		</div>
+		<div tag="img2">
+		</div>
+		<div tag="img3">
+		</div>
+		<div tag="img4">
+		</div>
+		<div tag="img5">
+		</div>
+		<div tag="img6">
+		</div>
+		<div tag="img7">
+		</div>
+		<div tag="img8">
+		</div>
+		<div tag="img9">
+		</div>
+		<br style="clear: both;">
+	</div>
+	<br>
+	<div class="imgboxbottom imgbox">
+		<!--5x2-->
+		<div>
+			<img id="img1" src="images/cntt_01.gif" draggable="true"/>
+		</div>
+		<div>
+			<img id="img2" src="images/cntt_02.gif" draggable="true"/>
+		</div>
+		<div>
+			<img id="img3" src="images/cntt_03.gif" draggable="true"/>
+		</div>
+		<div>
+			<img id="img4" src="images/cntt_04.gif" draggable="true"/>
+		</div>
+		<div>
+			<img id="img5" src="images/cntt_05.gif" draggable="true"/>
+		</div>
+		<div>
+			<img id="img6" src="images/cntt_06.gif" draggable="true""/>
+		</div>
+		<div>
+			<img id="img7" src="images/cntt_07.gif" draggable="true"/>
+		</div>
+		<div>
+			<img id="img8" src="images/cntt_08.gif" draggable="true"/>
+		</div>
+		<div>
+			<img id="img9" src="images/cntt_09.gif" draggable="true"/>
+		</div>
+		<div>
+			<img id="img10" src="images/cntt_10.gif" draggable="true"/>
+		</div>
+		<br style="clear: both;">
+	</div>
+	<div id="alertdiv" class="alert alert-success alert-dismissable fade in" style="width: 320px; margin: 20px auto; display: none;">
+        <b>Congratulations!</b> you have completed the puzzle game.
+    </div>
+</body>
+</html>
